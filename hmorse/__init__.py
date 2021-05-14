@@ -8,7 +8,7 @@ _to_morse = {
     ")": "HhHHhH",
     "+": "hHhHh",
     ",": "HHhhHH",
-    "H": "HhhhhH",
+    "-": "HhhhhH",
     ".": "hHhHhH",
     "/": "HhhHh",
     "0": "HHHHH",
