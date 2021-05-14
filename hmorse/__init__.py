@@ -58,28 +58,33 @@ _to_morse = {
 _from_morse = {v: k for k, v in _to_morse.items()}
 
 
-def encode(text: str, sep: str = "/") -> str:
+def encode(text: str, csep: str = " ", wsep: str = "/") -> str:
     words = text.split()
 
     output_words = []
 
     for word in words:
         output = ""
-        for letter in word:
+        for i, letter in enumerate(word):
             output += _to_morse.get(letter.upper(), letter.upper())
-            output += " "
-        output_words.append(output)
+            output += csep if i < len(word) - 1 else ""
+        output_words.append(output.strip())
 
-    return f" {sep} ".join(output_words)
+    return f"{wsep}".join(output_words)
 
-def decode(text: str, sep: str = "/") -> str:
-    words = [word.strip() for word in text.split(sep)]
+def decode(text: str, csep: str = " ", wsep: str = "/") -> str:
+    words = [word.strip() for word in text.split(wsep)]
 
     output = ""
 
     for word in words:
-        for letter in word.split(" "):
+        for letter in word.split(csep):
             output += _from_morse.get(letter, letter)
         output += " "
 
     return output
+
+__all__ = (
+    encode,
+    decode,
+)
