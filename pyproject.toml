@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hmorse"
-version = "1.0.1"
+version = "1.1.0"
 description = "Morse code but h"
 authors = ["vcokltfre <vcokltfre@gmail.com>"]
 license = "MIT"

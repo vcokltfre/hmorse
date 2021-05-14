@@ -58,7 +58,7 @@ _to_morse = {
 _from_morse = {v: k for k, v in _to_morse.items()}
 
 
-def encode(text: str) -> str:
+def encode(text: str, sep: str = "/") -> str:
     words = text.split()
 
     output_words = []
@@ -70,10 +70,10 @@ def encode(text: str) -> str:
             output += " "
         output_words.append(output)
 
-    return " / ".join(output_words)
+    return f" {sep} ".join(output_words)
 
-def decode(text: str) -> str:
-    words = [word.strip() for word in text.split("/")]
+def decode(text: str, sep: str = "/") -> str:
+    words = [word.strip() for word in text.split(sep)]
 
     output = ""
 
